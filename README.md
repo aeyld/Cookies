@@ -69,3 +69,5 @@ It only reports. Your team reads the report and decides, with your TM.
 On Day 9 you replace this README with your own. Start from `docs/README.md`.
 
 Weather data on the practice card by [Open-Meteo.com](https://open-meteo.com/).
+
+Github User: aeyld Today I made a github commit
