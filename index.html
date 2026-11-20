@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Set the page encoding, responsive layout, title, and browser tab icon. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
   <link rel="icon" href="data:,">
+  <!-- Load the shared practice styles first, then this page's styles. -->
   <link rel="stylesheet" href="practice/practice.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Let keyboard users skip directly to the main page content. -->
   <a class="skip-link" href="#main">Skip to the main content</a>
 
+  <!-- Introduce the cookie recipe site. -->
   <header>
     <h1 data-scroll-reveal>Cookies</h1>
     <p class="note" data-scroll-reveal>Discover our delicious cookie recipes and baking tips.</p>
   </header>
 
+  <!-- Hold the main recipe information and interactive cards. -->
   <main id="main">
+    <!-- Welcome visitors and explain what the recipe picker does. -->
     <section class="card" aria-labelledby="welcome-title" data-scroll-reveal>
       <h2 id="welcome-title" data-scroll-reveal>Welcome, cookie lovers!</h2>
       <p data-scroll-reveal>Choose a cookie and batch size to see scaled ingredients, then bake a favorite at home.</p>
     </section>
 
+    <!-- Highlight the featured chocolate chip recipe. -->
     <section class="card" aria-labelledby="featured-title" data-scroll-reveal>
       <h2 id="featured-title" data-scroll-reveal>Featured: Chocolate Chip Cookies</h2>
       <p data-scroll-reveal>A classic with crisp edges, a soft center, and plenty of chocolate chips.</p>
     </section>
 
+    <!-- Provide an asynchronously populated list of baking items and its status. -->
     <section class="card" aria-labelledby="items-title" data-scroll-reveal>
       <h2 id="items-title" data-scroll-reveal>Items</h2>
       <p class="note" data-scroll-reveal><b>Main </b>items needed to make these cookies</p>
@@ -34,6 +42,7 @@
       <ul id="items-list" class="list"></ul>
     </section>
 
+    <!-- Let visitors choose a recipe and batch size, then show scaled ingredients. -->
     <section class="card" aria-labelledby="cookie-title" data-scroll-reveal>
       <h2 id="cookie-title" data-scroll-reveal>Choose a cookie</h2>
       <form id="cookie-form">
@@ -49,6 +58,20 @@
       <ul id="ingredients-list" class="list"></ul>
     </section>
 
+    <!-- Show one instruction at a time for the selected cookie recipe. -->
+    <section class="card" aria-labelledby="procedure-title" data-scroll-reveal>
+      <h2 id="procedure-title">Cookie-making steps</h2>
+      <p id="procedure-cookie-name" class="note"></p>
+      <!-- Announce the current instruction and progress to assistive technology. -->
+      <div id="procedure-content" aria-live="polite" aria-atomic="true">
+        <p id="procedure-progress" class="note"></p>
+        <p id="procedure-step" class="procedure-step"></p>
+      </div>
+      <!-- Advance to the next instruction; JavaScript disables this at the end. -->
+      <button id="next-procedure-step" type="button">Next step</button>
+    </section>
+
+    <!-- Provide expandable answers to common recipe and baking questions. -->
     <section class="card faq-card" aria-labelledby="faq-title" data-scroll-reveal>
       <h2 id="faq-title">Frequently asked questions</h2>
       <div class="faq-list">
@@ -75,26 +98,25 @@
       </div>
     </section>
 
+    <!-- Share a general baking tip. -->
     <section class="card" aria-labelledby="tip-title" data-scroll-reveal>
       <h2 id="tip-title" data-scroll-reveal>Baking tip</h2>
       <p data-scroll-reveal>For thicker, chewier cookies, chill the dough for about 30 minutes before baking.</p>
     </section>
 
+    <!-- Remind visitors to check ingredients for allergens and cross-contact. -->
     <section class="card" aria-labelledby="allergy-title" data-scroll-reveal>
       <h2 id="allergy-title" data-scroll-reveal>Allergy reminder</h2>
       <p data-scroll-reveal>Recipes may contain common allergens. Check ingredient labels and prevent cross-contact; these recipes are not guaranteed allergen-free.</p>
     </section>
   </main>
 
+  <!-- Display the site credit. -->
   <footer>
     <p>Made by Adley</p>
-    <p>Practice pages: <a href="practice/index.html">Town forecast card</a></p>
-    <p>Day 4: try the <a href="practice/lock.html">locked box</a>.</p>
-    <p>Contact: adley.olala@moringaschool.com</p>
-    <p>Data credit: Cookie Data Copilot AI</p>
-
   </footer>
 
+  <!-- Load item data, recipe selection/steps, and scroll reveal behavior. -->
   <script type="module" src="app.js"></script>
   <script type="module" src="recipe.js"></script>
   <script type="module" src="scroll-reveal.js"></script>

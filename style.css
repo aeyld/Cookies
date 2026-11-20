@@ -111,6 +111,27 @@ label {
   background: #fff;
 }
 
+@supports (appearance: base-select) {
+  #cookie-type {
+    appearance: base-select;
+  }
+
+  #cookie-type::picker(select) {
+    appearance: base-select;
+    border: 1px solid #86776e;
+    border-radius: 12px;
+    overflow: clip;
+  }
+}
+
+/* Emphasize the single instruction currently shown in the procedure card. */
+.procedure-step {
+  padding: 1rem;
+  background: #fff8ee;
+  border-left: 4px solid #c97b48;
+  border-radius: 0 10px 10px 0;
+}
+
 button {
   margin-top: 1rem;
   padding: 0.7rem 1.1rem;
