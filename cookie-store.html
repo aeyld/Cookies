@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Set the page encoding, responsive layout, and browser tab title. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cookie Store</title>
+  <link rel="icon" href="data:,">
+  <!-- Reuse the site's shared colors, cards, and controls. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Let keyboard users skip directly to the store content. -->
+  <a class="skip-link" href="#main">Skip to the main content</a>
+
+  <!-- Identify the store and let visitors move between pages. -->
+  <header>
+    <h1>Cookie Store</h1>
+    <p class="note">Freshly baked favorites, boxed up for sharing.</p>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html">Recipe home</a>
+      <a href="cookie-store.html" aria-current="page">Cookie store</a>
+    </nav>
+  </header>
+
+  <!-- Show the products, current order, and demo checkout form. -->
+  <main id="main">
+    <!-- JavaScript fills this area with the cookie products and prices. -->
+    <section class="card" aria-labelledby="products-title">
+      <h2 id="products-title">Shop cookie boxes</h2>
+      <p>Each box contains six cookies. Add boxes to your order, then enter delivery details at checkout.</p>
+      <div id="product-list" class="store-products"></div>
+    </section>
+
+    <!-- Display selected boxes, quantity controls, and the running total. -->
+    <section class="card" aria-labelledby="order-title">
+      <h2 id="order-title">Your order</h2>
+      <p id="cart-empty" class="note">Your order is empty. Add a cookie box to get started.</p>
+      <ul id="cart-items" class="store-cart" aria-label="Items in your order" hidden></ul>
+      <p id="cart-total" class="store-total">Order total: $0.00</p>
+    </section>
+
+    <!-- Collect delivery details locally; this demo does not submit them. -->
+    <section class="card" aria-labelledby="checkout-title">
+      <h2 id="checkout-title">Delivery details</h2>
+      <p class="store-disclaimer">This is a demo store. It does not process payments or send or save your personal details.</p>
+      <form id="checkout-form" class="store-form">
+        <label for="customer-name">Name</label>
+        <input id="customer-name" name="name" autocomplete="name" required>
+
+        <label for="customer-email">Email</label>
+        <input id="customer-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+
+        <label for="delivery-address">Delivery address</label>
+        <textarea id="delivery-address" name="address" autocomplete="street-address" rows="3" placeholder="Street, city, postal code, country" required></textarea>
+
+        <button id="place-order" type="submit" disabled>Place demo order</button>
+      </form>
+      <p id="checkout-status" class="status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <!-- Provide a demo contact address and a return link. -->
+  <footer>
+    <p>Questions? Email <a href="mailto:orders@cookies.example">orders@cookies.example</a> (demo address).</p>
+    <p><a href="index.html">Back to cookie recipes</a></p>
+  </footer>
+
+  <!-- Load the product catalog, cart controls, and demo checkout behavior. -->
+  <script type="module" src="cookie-store.js"></script>
+</body>
+</html>

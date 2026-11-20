@@ -59,6 +59,18 @@ header .note {
   color: #f8e9dc;
 }
 
+/* Keep navigation links together and readable in the dark page header. */
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.site-nav a {
+  color: #fff;
+}
+
 a {
   color: var(--accent);
   font-weight: 600;
@@ -130,6 +142,96 @@ label {
   background: #fff8ee;
   border-left: 4px solid #c97b48;
   border-radius: 0 10px 10px 0;
+}
+
+/* Arrange product cards in responsive columns. */
+.store-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 1rem;
+}
+
+.store-product {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+  background: #fff8ee;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.store-product h3 {
+  margin: 0;
+  color: var(--accent);
+}
+
+.store-product p {
+  margin: 0.5rem 0;
+}
+
+.store-product-price {
+  font-weight: 700;
+}
+
+/* Style the selected order and its quantity controls. */
+.store-cart {
+  padding: 0;
+  list-style: none;
+}
+
+.store-cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.store-quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.store-quantity-controls button {
+  min-width: 2.5rem;
+  margin-top: 0;
+  padding: 0.35rem 0.65rem;
+}
+
+.store-total {
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+/* Visually distinguish the checkout privacy notice. */
+.store-disclaimer {
+  padding: 0.75rem;
+  background: #fff8ee;
+  border-left: 4px solid #c97b48;
+}
+
+/* Make checkout fields match the rest of the site's form controls. */
+.store-form input,
+.store-form textarea {
+  width: 100%;
+  padding: 0.7rem 0.75rem;
+  color: var(--text);
+  font: inherit;
+  border: 1px solid #86776e;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.store-form textarea {
+  resize: vertical;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 button {
