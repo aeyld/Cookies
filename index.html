@@ -3,32 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Our product</title>
+  <title></title>
   <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="practice/practice.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to the main content</a>
 
   <header>
-    <h1>Our product</h1>
-    <p class="note">Change this line on Day 3: who your product helps, and what it does for them.</p>
+    <h1 data-scroll-reveal>Cookies</h1>
+    <p class="note" data-scroll-reveal>Discover our delicious cookie recipes and baking tips.</p>
   </header>
 
   <main id="main">
-    <section class="card" aria-labelledby="items-title">
-      <h2 id="items-title">Items</h2>
-      <p class="note">Sample items, made up for this course. Replace them with your own data.</p>
+    <section class="card" aria-labelledby="welcome-title" data-scroll-reveal>
+      <h2 id="welcome-title" data-scroll-reveal>Welcome, cookie lovers!</h2>
+      <p data-scroll-reveal>Choose a cookie and batch size to see scaled ingredients, then bake a favorite at home.</p>
+    </section>
+
+    <section class="card" aria-labelledby="featured-title" data-scroll-reveal>
+      <h2 id="featured-title" data-scroll-reveal>Featured: Chocolate Chip Cookies</h2>
+      <p data-scroll-reveal>A classic with crisp edges, a soft center, and plenty of chocolate chips.</p>
+    </section>
+
+    <section class="card" aria-labelledby="items-title" data-scroll-reveal>
+      <h2 id="items-title" data-scroll-reveal>Items</h2>
+      <p class="note" data-scroll-reveal><b>Main </b>items needed to make these cookies</p>
       <p id="items-status" class="status" role="status" aria-live="polite"></p>
       <ul id="items-list" class="list"></ul>
+    </section>
+
+    <section class="card" aria-labelledby="cookie-title" data-scroll-reveal>
+      <h2 id="cookie-title" data-scroll-reveal>Choose a cookie</h2>
+      <form id="cookie-form">
+        <label for="cookie-type">Type of cookie</label>
+        <select id="cookie-type"></select>
+
+        <label for="quantity">Number of cookies</label>
+        <input id="quantity" type="number" min="1" value="12" required>
+        <button type="submit">Show ingredients</button>
+      </form>
+
+      <p id="cookie-status" class="status" role="status" aria-live="polite"></p>
+      <ul id="ingredients-list" class="list"></ul>
+    </section>
+
+    <section class="card faq-card" aria-labelledby="faq-title" data-scroll-reveal>
+      <h2 id="faq-title">Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary><strong>How many cookies does each recipe make?</strong></summary>
+          <p>Each recipe starts with a 12-cookie yield. Choose a different batch size to scale the ingredient amounts.</p>
+        </details>
+        <details class="faq-item">
+          <summary><strong>Can I make a different number of cookies?</strong></summary>
+          <p>Yes. Enter the number you want in the recipe picker, then select Show ingredients to see the adjusted amounts.</p>
+        </details>
+        <details class="faq-item">
+          <summary><strong>How can I get thicker, chewier cookies?</strong></summary>
+          <p>Chill the dough for about 30 minutes before baking. This can help limit spreading.</p>
+        </details>
+        <details class="faq-item">
+          <summary><strong>How should I store baked cookies?</strong></summary>
+          <p>Let them cool completely, then store them in an airtight container to help keep them fresh.</p>
+        </details>
+        <details class="faq-item">
+          <summary><strong>Are these recipes safe for people with food allergies?</strong></summary>
+          <p>They are not guaranteed allergen-free. Check every ingredient label and take steps to prevent cross-contact.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="tip-title" data-scroll-reveal>
+      <h2 id="tip-title" data-scroll-reveal>Baking tip</h2>
+      <p data-scroll-reveal>For thicker, chewier cookies, chill the dough for about 30 minutes before baking.</p>
+    </section>
+
+    <section class="card" aria-labelledby="allergy-title" data-scroll-reveal>
+      <h2 id="allergy-title" data-scroll-reveal>Allergy reminder</h2>
+      <p data-scroll-reveal>Recipes may contain common allergens. Check ingredient labels and prevent cross-contact; these recipes are not guaranteed allergen-free.</p>
     </section>
   </main>
 
   <footer>
-    <p>Made by our team for Trailblazer: AI Product Studio.</p>
+    <p>Made by Adley</p>
     <p>Practice pages: <a href="practice/index.html">Town forecast card</a></p>
+    <p>Day 4: try the <a href="practice/lock.html">locked box</a>.</p>
+    <p>Contact: adley.olala@moringaschool.com</p>
+    <p>Data credit: Cookie Data Copilot AI</p>
+
   </footer>
 
   <script type="module" src="app.js"></script>
+  <script type="module" src="recipe.js"></script>
+  <script type="module" src="scroll-reveal.js"></script>
 </body>
 </html>

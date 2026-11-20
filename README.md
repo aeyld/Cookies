@@ -10,7 +10,7 @@ This is your team's starting repository for Trailblazer: AI Product Studio. Your
 | `src/service.js` | Your service module (runs in the browser for now). It fetches and checks data for the interface. | Days 3 and 4 |
 | `src/prepared-answers.js` | Finds a checked answer to a user's question. Only for products with an AI feature. | Day 5 |
 | `data/` | Sample data made up for this course, a saved forecast, and the data for every challenge in `data/challenges/`. `data/README.md` says where each file came from. | From Day 3 |
-| `practice/` | The Town forecast practice card and the locked box. | Days 3 and 4 |
+| `practice/` | The cookie recipe picker and the locked box. | Days 3 and 4 |
 | `test/` | Automatic tests. They run every time you open a pull request. | From Day 3 |
 | `docs/` | Templates: README and case study, data map, architecture sketch and risk register. | From Day 1 |
 | `scripts/` | The privacy check your team runs before the repository goes public. | Days 7 and 8 |
@@ -26,7 +26,7 @@ Your challenge's data is already in `data/challenges/`, so your team copies noth
 
 When it is ready, a preview of your product opens in a panel. If you close it, open the **Ports** tab and press the globe icon next to port 3000.
 
-To reach the practice card, use the "Town forecast card" link at the bottom of the preview.
+To reach the cookie recipe picker, use its link at the bottom of the preview.
 
 The preview starts with the command `npm start`. If it stops working, type `npm start` in the terminal to start it again.
 
@@ -68,4 +68,3 @@ It only reports. Your team reads the report and decides, with your TM.
 
 On Day 9 you replace this README with your own. Start from `docs/README.md`.
 
-Weather data on the practice card by [Open-Meteo.com](https://open-meteo.com/).
