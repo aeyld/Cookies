@@ -35,12 +35,25 @@
         <li class="nav-item"><a class="nav-link" href="cookie-store.html">Cookie Store</a></li>
       </ul>
       <div class="icon-buttons">
-        <button class="icon-btn" type="button" aria-label="Search">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+        <button class="icon-btn" id="search-toggle" type="button" aria-label="Search" aria-expanded="false" aria-controls="search-panel">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="10.5" cy="10.5" r="6"/>
+            <line x1="15" y1="15" x2="20.5" y2="20.5"/>
+          </svg>
         </button>
         <button class="icon-btn" type="button" aria-label="Menu">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
+      </div>
+    </div>
+
+    <!-- Search bar that slides open under the header bar. -->
+    <div class="search-panel" id="search-panel">
+      <div class="search-panel-inner">
+        <div class="search-panel-content">
+          <input id="site-search" type="search" placeholder="Search cookies, ingredients, FAQs..." aria-label="Search the site" autocomplete="off">
+          <ul id="search-results" aria-live="polite"></ul>
+        </div>
       </div>
     </div>
 
@@ -57,7 +70,7 @@
         </div>
         <!-- Tilted photo frame: put your cookie image where the comment is. -->
         <div class="hero-photo">
-          <!-- <img src="your-cookie-photo.jpg" alt="Cookies cooling on a rack"> -->
+          <img src="https://images.unsplash.com/photo-1639678111962-88fffeb071cb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Chocolate Chip Cookies">
           <div class="hero-photo-blank"></div>
         </div>
       </div>
@@ -72,42 +85,42 @@
       <ul class="popular-grid">
         <li>
           <a class="popular-card" href="#">
-            <!-- Put your photo here: <img src="your-photo.jpg" alt="The Best Sugar Cookies"> -->
+            <img src="https://images.unsplash.com/photo-1734180206659-ad037b2024fe?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="The Best Sugar Cookies">
             <span class="popular-img"></span>
             <span class="popular-title">The Best Sugar Cookies</span>
           </a>
         </li>
         <li>
           <a class="popular-card" href="#">
-            <!-- Put your photo here: <img src="your-photo.jpg" alt="Chewy Chocolate Chip Cookies"> -->
+            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Chewy Chocolate Chip Cookies">
             <span class="popular-img"></span>
             <span class="popular-title">Chewy Chocolate Chip Cookies</span>
           </a>
         </li>
         <li>
           <a class="popular-card" href="#">
-            <!-- Put your photo here: <img src="your-photo.jpg" alt="Soft and Chewy Oatmeal Raisin Cookies"> -->
+            <img src="https://images.unsplash.com/photo-1757451628318-af04456154e7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Soft and Chewy Oatmeal Raisin Cookies">
             <span class="popular-img"></span>
             <span class="popular-title">Soft &amp; Chewy Oatmeal Raisin Cookies</span>
           </a>
         </li>
         <li>
           <a class="popular-card" href="#">
-            <!-- Put your photo here: <img src="your-photo.jpg" alt="Double Chocolate Chip Cookies Recipe"> -->
+            <img src="https://images.unsplash.com/photo-1719384980808-0f3b833a2468?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Double Chocolate Chip Cookies Recipe">
             <span class="popular-img"></span>
             <span class="popular-title">Double Chocolate Chip Cookies Recipe</span>
           </a>
         </li>
         <li>
           <a class="popular-card" href="#">
-            <!-- Put your photo here: <img src="your-photo.jpg" alt="Chewy Oatmeal Chocolate Chip Cookies"> -->
+            <img src="https://images.unsplash.com/photo-1723585137190-6ebb0afa1de6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Chewy Oatmeal Chocolate Chip Cookies">
             <span class="popular-img"></span>
             <span class="popular-title">Chewy Oatmeal Chocolate Chip Cookies</span>
           </a>
         </li>
         <li>
           <a class="popular-card" href="#">
-            <!-- Put your photo here: <img src="your-photo.jpg" alt="Soft and Thick Snickerdoodles"> -->
+            <img src="https://images.unsplash.com/photo-1703187839559-3ae0b51bd4f1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Soft and Thick Snickerdoodles">
             <span class="popular-img"></span>
             <span class="popular-title">Soft &amp; Thick Snickerdoodles</span>
           </a>
@@ -125,12 +138,44 @@
       <p>A classic with crisp edges, a soft center, and plenty of chocolate chips.</p>
     </section>
 
-    <!-- Provide an asynchronously populated list of baking items and its status. -->
-    <section class="card" aria-labelledby="items-title" data-scroll-reveal>
+    <!-- List of baking items, written directly in the HTML with an image in each tile. -->
+    <section class="card" id="items" aria-labelledby="items-title" data-scroll-reveal>
       <h2 id="items-title">Items</h2>
       <p class="note"><b>Main </b>items needed to make these cookies</p>
-      <p id="items-status" class="status" role="status" aria-live="polite"></p>
-      <ul id="items-list" class="list"></ul>
+      <ul id="items-list" class="list">
+        <li>
+          <img src="https://images.unsplash.com/photo-1673791031093-eb8eefa60083?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Sugar">
+          <strong>Sugar</strong> 3/4 to 1 cup of granulated sugar.
+        </li>
+        <li>
+          <img src="https://images.unsplash.com/photo-1627485937980-221c88ac04f9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Flour">
+          <strong>Flour</strong> 2 1/4 cups of all-purpose flour to build structure.
+        </li>
+        <li>
+          <img src="https://images.unsplash.com/photo-1586802990181-a5771596eaea?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Eggs">
+          <strong>Eggs</strong> 2 large eggs, beaten.
+        </li>
+        <li>
+          <img src="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Butter">
+          <strong>Butter</strong> 1 cup (220g/2 sticks) of unsalted butter, softened.
+        </li>
+        <li>
+          <img src="https://images.unsplash.com/photo-1682482003115-b6abbd9e6834?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Vanilla Extract">
+          <strong>Vanilla Extract</strong> 1 to 2 teaspoons of vanilla extract.
+        </li>
+        <li>
+          <img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Baking Soda">
+          <strong>Baking Soda</strong> 1 teaspoon of baking soda and sometimes baking powder to help the cookies rise.
+        </li>
+        <li>
+          <img src="https://images.unsplash.com/photo-1634612831148-03a8550e1d52?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Salt">
+          <strong>Salt</strong> 1/2 teaspoon of salt to balance the sweetness and enhance flavor.
+        </li>
+        <li>
+          <img src="https://plus.unsplash.com/premium_photo-1726072358526-542e07d58e36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Chocolate Chips">
+          <strong>Chocolate Chips</strong> 2 cups of semi-sweet chocolate chips.
+        </li>
+      </ul>
     </section>
 
     <!-- Let visitors choose a recipe and batch size, then show scaled ingredients. -->
@@ -202,9 +247,9 @@
     <p>Made by Adley</p>
   </footer>
 
-  <!-- Load item data, recipe selection/steps, and scroll reveal behavior. -->
-  <script type="module" src="app.js"></script>
+  <!-- Load recipe selection/steps, scroll reveal, and search behavior. -->
   <script type="module" src="recipe.js"></script>
   <script type="module" src="scroll-reveal.js"></script>
+  <script type="module" src="search.js"></script>
 </body>
 </html>

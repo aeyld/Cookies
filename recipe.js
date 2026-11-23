@@ -102,6 +102,9 @@ const procedureStep = document.querySelector('#procedure-step')
 const nextProcedureStep = document.querySelector('#next-procedure-step')
 let activeSteps = []
 let activeStepIndex = 0
+let restartTimer          // holds the 2-second timer before "Restart?"
+let widthTimer            // holds the timer that clears the button's fixed width
+let canRestart = false    // true once the button says "Restart?"
 
 // Create one dropdown option for each available cookie recipe.
 for (const cookie of COOKIE_TYPES) {
@@ -120,13 +123,54 @@ function getSelectedCookie() {
   return cookie
 }
 
-// Show the current instruction and stop navigation at the final step.
+// Change the button's label and slide its width to fit the new text.
+function setButton(label, disabled) {
+  clearTimeout(widthTimer)
+
+  const startWidth = nextProcedureStep.offsetWidth
+
+  nextProcedureStep.style.width = 'auto'
+  nextProcedureStep.textContent = label
+  nextProcedureStep.disabled = disabled
+  const endWidth = nextProcedureStep.offsetWidth
+
+  if (startWidth === endWidth) {
+    nextProcedureStep.style.width = ''
+    return
+  }
+
+  // Start at the old width, force the browser to register it, then slide to the new one.
+  nextProcedureStep.style.width = `${startWidth}px`
+  nextProcedureStep.offsetWidth
+  nextProcedureStep.style.width = `${endWidth}px`
+
+  // Hand control back to normal auto sizing once the slide is done.
+  widthTimer = setTimeout(() => {
+    nextProcedureStep.style.width = ''
+  }, 450)
+}
+
+// Show the current instruction. On the last step, show "All steps complete"
+// for 2 seconds, then shrink the button into "Restart?".
 function renderProcedure() {
+  // Cancel any pending timer so it can't fire on the wrong step.
+  clearTimeout(restartTimer)
+  canRestart = false
+
   const isLastStep = activeStepIndex === activeSteps.length - 1
   procedureProgress.textContent = `Step ${activeStepIndex + 1} of ${activeSteps.length}${isLastStep ? ' — All steps complete.' : ''}`
   procedureStep.textContent = activeSteps[activeStepIndex]
-  nextProcedureStep.disabled = isLastStep
-  nextProcedureStep.textContent = isLastStep ? 'All steps complete' : 'Next step'
+
+  if (isLastStep) {
+    setButton('All steps complete', true)
+
+    restartTimer = setTimeout(() => {
+      canRestart = true
+      setButton('Restart?', false)
+    }, 2000)
+  } else {
+    setButton('Next step', false)
+  }
 }
 
 // Load the selected recipe's instructions and return the guide to step one.
@@ -141,6 +185,13 @@ function resetProcedure() {
 // Start over when a different cookie is selected; advance one step per click.
 cookieSelect.addEventListener('change', resetProcedure)
 nextProcedureStep.addEventListener('click', () => {
+  // If the button says "Restart?", go back to step 1.
+  if (canRestart) {
+    activeStepIndex = 0
+    renderProcedure()
+    return
+  }
+
   if (activeStepIndex < activeSteps.length - 1) {
     activeStepIndex += 1
     renderProcedure()
