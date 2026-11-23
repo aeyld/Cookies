@@ -4,9 +4,12 @@
   <!-- Set the page encoding, responsive layout, title, and browser tab icon. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <title>Cookies</title>
   <link rel="icon" href="data:,">
-  <!-- Load the shared practice styles first, then this page's styles. -->
+  <!-- Load the Outfit font, the shared practice styles, then this page's styles. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="practice/practice.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -14,40 +17,125 @@
   <!-- Let keyboard users skip directly to the main page content. -->
   <a class="skip-link" href="#main">Skip to the main content</a>
 
-  <!-- Introduce the cookie recipe site. -->
-  <header>
-    <h1 data-scroll-reveal>Cookies</h1>
-    <p class="note" data-scroll-reveal>Discover our delicious cookie recipes and baking tips.</p>
-    <nav class="site-nav" aria-label="Main navigation">
-      <a href="cookie-store.html">Cookie store</a>
-    </nav>
+  <!-- Announce the cookie store in a pink promo bar. -->
+  <div class="promo">
+    <span>Fresh-baked cookies, delivered</span>
+    <a href="cookie-store.html">ORDER TODAY!</a>
+  </div>
+
+  <header class="site-header">
+    <!-- Brand, main navigation, and search/menu buttons on one bar. -->
+    <div class="topbar">
+      <a class="brand" href="#">COOKIES</a>
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">All Cookies</a></li>
+        <li class="nav-item"><a class="nav-link" href="#featured">Featured</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bake-now">Bake Now!</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq">FAQs</a></li>
+        <li class="nav-item"><a class="nav-link" href="cookie-store.html">Cookie Store</a></li>
+      </ul>
+      <div class="icon-buttons">
+        <button class="icon-btn" type="button" aria-label="Search">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+        </button>
+        <button class="icon-btn" type="button" aria-label="Menu">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Introduce the cookie recipe site. -->
+    <div class="hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <p class="crumbs"><a href="#">Desserts</a> · Cookies</p>
+          <div class="title-row">
+            <span class="title-icon" aria-hidden="true">🍪</span>
+            <h1 data-scroll-reveal>Cookies</h1>
+          </div>
+          <p class="note" data-scroll-reveal>Welcome to our cookie corner! Whether you crave a classic <a href="#featured">chocolate chip cookie</a> with crisp edges and a gooey center, or you want to try something new, you will find a recipe here to match your mood. Pick a cookie and a batch size in the <a href="#bake-now">Bake Now!</a> section, follow the simple steps, and have a warm tray ready before you know it. New bakers and seasoned pros are both welcome.</p>
+        </div>
+        <!-- Tilted photo frame: put your cookie image where the comment is. -->
+        <div class="hero-photo">
+          <!-- <img src="your-cookie-photo.jpg" alt="Cookies cooling on a rack"> -->
+          <div class="hero-photo-blank"></div>
+        </div>
+      </div>
+    </div>
   </header>
 
   <!-- Hold the main recipe information and interactive cards. -->
   <main id="main">
-    <!-- Welcome visitors and explain what the recipe picker does. -->
-    <section class="card" aria-labelledby="welcome-title" data-scroll-reveal>
-      <h2 id="welcome-title" data-scroll-reveal>Welcome, cookie lovers!</h2>
-      <p data-scroll-reveal>Choose a cookie and batch size to see scaled ingredients, then bake a favorite at home.</p>
+    <!-- Show the most popular cookie recipes as a row of photo cards. -->
+    <section class="card popular" id="popular" aria-labelledby="popular-title">
+      <h2 id="popular-title">Most Popular Cookies</h2>
+      <ul class="popular-grid">
+        <li>
+          <a class="popular-card" href="#">
+            <!-- Put your photo here: <img src="your-photo.jpg" alt="The Best Sugar Cookies"> -->
+            <span class="popular-img"></span>
+            <span class="popular-title">The Best Sugar Cookies</span>
+          </a>
+        </li>
+        <li>
+          <a class="popular-card" href="#">
+            <!-- Put your photo here: <img src="your-photo.jpg" alt="Chewy Chocolate Chip Cookies"> -->
+            <span class="popular-img"></span>
+            <span class="popular-title">Chewy Chocolate Chip Cookies</span>
+          </a>
+        </li>
+        <li>
+          <a class="popular-card" href="#">
+            <!-- Put your photo here: <img src="your-photo.jpg" alt="Soft and Chewy Oatmeal Raisin Cookies"> -->
+            <span class="popular-img"></span>
+            <span class="popular-title">Soft &amp; Chewy Oatmeal Raisin Cookies</span>
+          </a>
+        </li>
+        <li>
+          <a class="popular-card" href="#">
+            <!-- Put your photo here: <img src="your-photo.jpg" alt="Double Chocolate Chip Cookies Recipe"> -->
+            <span class="popular-img"></span>
+            <span class="popular-title">Double Chocolate Chip Cookies Recipe</span>
+          </a>
+        </li>
+        <li>
+          <a class="popular-card" href="#">
+            <!-- Put your photo here: <img src="your-photo.jpg" alt="Chewy Oatmeal Chocolate Chip Cookies"> -->
+            <span class="popular-img"></span>
+            <span class="popular-title">Chewy Oatmeal Chocolate Chip Cookies</span>
+          </a>
+        </li>
+        <li>
+          <a class="popular-card" href="#">
+            <!-- Put your photo here: <img src="your-photo.jpg" alt="Soft and Thick Snickerdoodles"> -->
+            <span class="popular-img"></span>
+            <span class="popular-title">Soft &amp; Thick Snickerdoodles</span>
+          </a>
+        </li>
+      </ul>
     </section>
 
-    <!-- Highlight the featured chocolate chip recipe. -->
-    <section class="card" aria-labelledby="featured-title" data-scroll-reveal>
-      <h2 id="featured-title" data-scroll-reveal>Featured: Chocolate Chip Cookies</h2>
-      <p data-scroll-reveal>A classic with crisp edges, a soft center, and plenty of chocolate chips.</p>
+    <section class="card" id="welcome" aria-labelledby="welcome-title" data-scroll-reveal>
+      <h2 id="welcome-title">Welcome, cookie lovers!</h2>
+      <p>Choose a cookie and batch size to see scaled ingredients, then bake a favorite at home.</p>
+    </section>
+
+    <section class="card" id="featured" aria-labelledby="featured-title" data-scroll-reveal>
+      <h2 id="featured-title">Featured: Chocolate Chip Cookies</h2>
+      <p>A classic with crisp edges, a soft center, and plenty of chocolate chips.</p>
     </section>
 
     <!-- Provide an asynchronously populated list of baking items and its status. -->
     <section class="card" aria-labelledby="items-title" data-scroll-reveal>
-      <h2 id="items-title" data-scroll-reveal>Items</h2>
-      <p class="note" data-scroll-reveal><b>Main </b>items needed to make these cookies</p>
+      <h2 id="items-title">Items</h2>
+      <p class="note"><b>Main </b>items needed to make these cookies</p>
       <p id="items-status" class="status" role="status" aria-live="polite"></p>
       <ul id="items-list" class="list"></ul>
     </section>
 
     <!-- Let visitors choose a recipe and batch size, then show scaled ingredients. -->
-    <section class="card" aria-labelledby="cookie-title" data-scroll-reveal>
-      <h2 id="cookie-title" data-scroll-reveal>Choose a cookie</h2>
+    <section class="card" id="bake-now" aria-labelledby="cookie-title" data-scroll-reveal>
+      <h2 id="cookie-title">Choose a cookie</h2>
       <form id="cookie-form">
         <label for="cookie-type">Type of cookie</label>
         <select id="cookie-type"></select>
@@ -65,17 +153,15 @@
     <section class="card" aria-labelledby="procedure-title" data-scroll-reveal>
       <h2 id="procedure-title">Cookie-making steps</h2>
       <p id="procedure-cookie-name" class="note"></p>
-      <!-- Announce the current instruction and progress to assistive technology. -->
       <div id="procedure-content" aria-live="polite" aria-atomic="true">
         <p id="procedure-progress" class="note"></p>
         <p id="procedure-step" class="procedure-step"></p>
       </div>
-      <!-- Advance to the next instruction; JavaScript disables this at the end. -->
       <button id="next-procedure-step" type="button">Next step</button>
     </section>
 
     <!-- Provide expandable answers to common recipe and baking questions. -->
-    <section class="card faq-card" aria-labelledby="faq-title" data-scroll-reveal>
+    <section class="card faq-card" id="faq" aria-labelledby="faq-title" data-scroll-reveal>
       <h2 id="faq-title">Frequently asked questions</h2>
       <div class="faq-list">
         <details class="faq-item">
@@ -101,20 +187,17 @@
       </div>
     </section>
 
-    <!-- Share a general baking tip. -->
     <section class="card" aria-labelledby="tip-title" data-scroll-reveal>
-      <h2 id="tip-title" data-scroll-reveal>Baking tip</h2>
-      <p data-scroll-reveal>For thicker, chewier cookies, chill the dough for about 30 minutes before baking.</p>
+      <h2 id="tip-title">Baking tip</h2>
+      <p>For thicker, chewier cookies, chill the dough for about 30 minutes before baking.</p>
     </section>
 
-    <!-- Remind visitors to check ingredients for allergens and cross-contact. -->
     <section class="card" aria-labelledby="allergy-title" data-scroll-reveal>
-      <h2 id="allergy-title" data-scroll-reveal>Allergy reminder</h2>
-      <p data-scroll-reveal>Recipes may contain common allergens. Check ingredient labels and prevent cross-contact; these recipes are not guaranteed allergen-free.</p>
+      <h2 id="allergy-title">Allergy reminder</h2>
+      <p>Recipes may contain common allergens. Check ingredient labels and prevent cross-contact; these recipes are not guaranteed allergen-free.</p>
     </section>
   </main>
 
-  <!-- Display the site credit. -->
   <footer>
     <p>Made by Adley</p>
   </footer>

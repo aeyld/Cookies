@@ -1,9 +1,9 @@
-// Product catalog: prices are for six-cookie boxes and stored as cents.
+// Converted from USD at 1 USD = 129.983881 KES on 2026-11-20, rounded to whole shillings.
 const PRODUCTS = [
-  { id: 'chocolate-chip', name: 'Chocolate Chip', description: 'A classic cookie with crisp edges and plenty of chocolate.', price: 850 },
-  { id: 'oatmeal-raisin', name: 'Oatmeal Raisin', description: 'Chewy oats, sweet raisins, and a hint of cinnamon.', price: 800 },
-  { id: 'peanut-butter', name: 'Peanut Butter', description: 'Soft, nutty cookies with the familiar fork-pressed top.', price: 900 },
-  { id: 'sugar', name: 'Sugar', description: 'Buttery, tender cookies with a delicate vanilla flavor.', price: 750 },
+  { id: 'chocolate-chip', name: 'Chocolate Chip', description: 'A classic cookie with crisp edges and plenty of chocolate.', priceKes: 1105 },
+  { id: 'oatmeal-raisin', name: 'Oatmeal Raisin', description: 'Chewy oats, sweet raisins, and a hint of cinnamon.', priceKes: 1040 },
+  { id: 'peanut-butter', name: 'Peanut Butter', description: 'Soft, nutty cookies with the familiar fork-pressed top.', priceKes: 1170 },
+  { id: 'sugar', name: 'Sugar', description: 'Buttery, tender cookies with a delicate vanilla flavor.', priceKes: 975 },
 ]
 
 // Cache the product, cart, and checkout elements used by the store.
@@ -16,12 +16,13 @@ const checkoutButton = document.querySelector('#place-order')
 const checkoutStatus = document.querySelector('#checkout-status')
 const cart = new Map()
 
-// Format a cent amount as a US dollar price for display.
-function formatPrice(cents) {
-  return new Intl.NumberFormat('en-US', {
+// Format an amount in whole Kenyan shillings for display.
+function formatPrice(shillings) {
+  return new Intl.NumberFormat('en-KE', {
     style: 'currency',
-    currency: 'USD',
-  }).format(cents / 100)
+    currency: 'KES',
+    maximumFractionDigits: 0,
+  }).format(shillings)
 }
 
 // Add or remove boxes, then refresh the order summary.
@@ -48,7 +49,7 @@ function createProductCard(product) {
 
   const price = document.createElement('p')
   price.className = 'store-product-price'
-  price.textContent = `6-cookie box - ${formatPrice(product.price)}`
+  price.textContent = `6-cookie box - ${formatPrice(product.priceKes)}`
 
   const addButton = document.createElement('button')
   addButton.type = 'button'
@@ -68,7 +69,7 @@ function renderCart() {
     const quantity = cart.get(product.id) || 0
     if (quantity === 0) continue
 
-    const lineTotal = product.price * quantity
+    const lineTotal = product.priceKes * quantity
     total += lineTotal
 
     const item = document.createElement('li')
