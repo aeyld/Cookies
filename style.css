@@ -300,22 +300,48 @@ button:disabled { opacity: 0.55; cursor: not-allowed; }
 }
 
 /* ---------- FAQ ---------- */
+/* ---------- FAQ ---------- */
 .faq-item + .faq-item { border-top: 1px solid var(--line); }
 .faq-item summary {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.3rem 0;
+  padding: 1.3rem 2.5rem 1.3rem 0;   /* room on the right for the icon */
   font-size: 1.35rem;
   cursor: pointer;
   list-style: none;
 }
 .faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary::after { content: "+"; color: var(--berry); font-size: 1.5rem; }
-.faq-item[open] summary::after { content: "–"; }
 .faq-item summary:hover { color: var(--berry); }
-.faq-item p { margin: 0 0 1rem; }
+
+/* The + is two bars. Rotating them turns the + into a – */
+.faq-item summary::before,
+.faq-item summary::after {
+  content: "";
+  position: absolute;
+  right: 0.25rem;
+  top: 50%;
+  width: 1rem;
+  height: 2px;
+  margin-top: -1px;
+  background: var(--berry);
+  transition: transform 300ms ease;
+}
+.faq-item summary::before { transform: rotate(0deg); }
+.faq-item summary::after  { transform: rotate(90deg); }
+
+.faq-item[open]:not(.closing) summary::before { transform: rotate(180deg); }
+.faq-item[open]:not(.closing) summary::after  { transform: rotate(180deg); }
+
+/* padding instead of margin, so the height doesn't jump when the animation ends */
+.faq-item p { margin: 0; padding: 0 0 1rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-item summary::before,
+  .faq-item summary::after { transition: none; }
+}
 
 /* ---------- Store (cookie-store.html) ---------- */
 .store-products {
@@ -589,4 +615,26 @@ footer { max-width: none; width: 100%; margin-left: 0; margin-right: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   #next-procedure-step { transition: none; }
+}
+/* Ingredients list in "Choose a cookie": plain bulleted text */
+#ingredients-list {
+  display: block;
+  margin: 1rem 0 0 -1rem;   /* negative left margin moves the list toward the card's border */
+  padding: 0 0 0 1.5rem;    /* room for the bullets */
+  list-style: disc;
+}
+#ingredients-list > li {
+  display: list-item;
+  min-height: 0;
+  padding: 0.2rem 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+#ingredients-list > li::marker { color: var(--rose); }
+#cookie-form button {
+  display: block;
+  margin-top: 1.5rem;
 }
