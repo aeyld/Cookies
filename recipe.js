@@ -13,10 +13,10 @@ const COOKIE_TYPES = [
       'Cool the cookies on the baking sheet for 5 minutes, then move them to a rack.',
     ],
     ingredients: [
-      { amount: 1.5, unit: 'cup', name: 'All-purpose flour' },
-      { amount: 0.5, unit: 'cup', name: 'Butter' },
-      { amount: 0.5, unit: 'cup', name: 'Brown sugar' },
-      { amount: 0.25, unit: 'cup', name: 'Granulated sugar' },
+      { amount: 180, unit: 'g', name: 'All-purpose flour' },
+      { amount: 115, unit: 'g', name: 'Butter' },
+      { amount: 150, unit: 'g', name: 'Brown sugar' },
+      { amount: 125, unit: 'g', name: 'Granulated sugar' },
       { amount: 1, unit: 'large egg', name: '' },
       { amount: 1, unit: 'tsp', name: 'Vanilla extract' },
       { amount: 0.5, unit: 'tsp', name: 'Baking soda' },
@@ -35,9 +35,9 @@ const COOKIE_TYPES = [
       'Cool the cookies on the baking sheet for 5 minutes, then move them to a rack.',
     ],
     ingredients: [
-      { amount: 1, unit: 'cup', name: 'All-purpose flour' },
-      { amount: 0.5, unit: 'cup', name: 'Butter' },
-      { amount: 0.5, unit: 'cup', name: 'Brown sugar' },
+      { amount: 120, unit: 'g', name: 'All-purpose flour' },
+      { amount: 115, unit: 'g', name: 'Butter' },
+      { amount: 115, unit: 'g', name: 'Brown sugar' },
       { amount: 1, unit: 'large egg', name: '' },
       { amount: 0.5, unit: 'tsp', name: 'Vanilla extract' },
       { amount: 1.5, unit: 'cup', name: 'Rolled oats' },
@@ -58,11 +58,11 @@ const COOKIE_TYPES = [
       'Cool the cookies on the baking sheet for 5 minutes, then move them to a rack.',
     ],
     ingredients: [
-      { amount: 1, unit: 'cup', name: 'All-purpose flour' },
-      { amount: 0.5, unit: 'cup', name: 'Peanut butter' },
-      { amount: 0.25, unit: 'cup', name: 'Butter' },
-      { amount: 0.5, unit: 'cup', name: 'Brown sugar' },
-      { amount: 0.25, unit: 'cup', name: 'Granulated sugar' },
+      { amount: 120, unit: 'g', name: 'All-purpose flour' },
+      { amount: 125, unit: 'g', name: 'Peanut butter' },
+      { amount: 115, unit: 'g', name: 'Butter' },
+      { amount: 115, unit: 'g', name: 'Brown sugar' },
+      { amount: 125, unit: 'g', name: 'Granulated sugar' },
       { amount: 1, unit: 'large egg', name: '' },
       { amount: 0.5, unit: 'tsp', name: 'Baking soda' },
       { amount: 0.25, unit: 'tsp', name: 'Salt' },
@@ -79,10 +79,10 @@ const COOKIE_TYPES = [
       'Cool the cookies on the baking sheet for 5 minutes, then move them to a rack.',
     ],
     ingredients: [
-      { amount: 1.5, unit: 'cup', name: 'All-purpose flour' },
-      { amount: 0.5, unit: 'cup', name: 'Butter' },
-      { amount: 0.75, unit: 'cup', name: 'Granulated sugar' },
-      { amount: 1, unit: 'large egg', name: '' },
+      { amount: 180, unit: 'g', name: 'All-purpose flour' },
+      { amount: 115, unit: 'g', name: 'Butter' },
+      { amount: 150, unit: 'g', name: 'Granulated sugar' },
+      { amount: 1, unit: 'large', name: '' },
       { amount: 1, unit: 'tsp', name: 'Vanilla extract' },
       { amount: 0.5, unit: 'tsp', name: 'Baking powder' },
       { amount: 0.25, unit: 'tsp', name: 'Salt' },
@@ -213,7 +213,7 @@ form.addEventListener('submit', (event) => {
     const roundedAmount = Number(amount.toFixed(2))
     const unit = ingredient.unit === 'tsp' || roundedAmount === 1
       ? ingredient.unit
-      : `${ingredient.unit}s`
+      : `${ingredient.unit}`
     item.textContent = `${roundedAmount} ${unit}${ingredient.name ? ` ${ingredient.name}` : ''}`
     list.append(item)
   }
