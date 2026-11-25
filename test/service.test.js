@@ -12,8 +12,8 @@ test('getItems gives the list of items', async () => {
   const result = await getItems(fetchFn)
 
   assert.equal(result.ok, true)
-  assert.equal(result.data.length, 3)
-  assert.equal(result.data[0].title, 'Saturday clean-up')
+  assert.equal(result.data.length, 8)
+  assert.equal(result.data[0].title, 'Sugar')
 })
 
 test('getItems gives BAD_RESPONSE when the file is missing', async () => {
